@@ -1,6 +1,8 @@
 import "tailwindcss/tailwind.css"
 import React from "react"
 import { StoreProvider } from "./components/Store"
+import Router from "next/router"
+import NProgress from "nprogress"
 
 MyApp.getInitialProps = async () => {
   return {
@@ -9,6 +11,10 @@ MyApp.getInitialProps = async () => {
     },
   }
 }
+
+Router.events.on("routeChangeStart", () => NProgress.start())
+Router.events.on("routeChangeComplete", () => NProgress.done())
+Router.events.on("routeChangeError", () => NProgress.start())
 
 function MyApp({ Component, pageProps }) {
   return (
