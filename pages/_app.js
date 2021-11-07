@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css"
 import React from "react"
 import { StoreProvider } from "./components/Store"
 import Router from "next/router"
